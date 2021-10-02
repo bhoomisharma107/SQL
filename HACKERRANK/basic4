@@ -1,0 +1,63 @@
+QUERY 1
+Write a query identifying the type of each record in the TRIANGLES table using its three side lengths. Output one of the following statements for each record in the table:
+
+Equilateral: It's a triangle with  sides of equal length.
+Isosceles: It's a triangle with  sides of equal length.
+Scalene: It's a triangle with  sides of differing lengths.
+Not A Triangle: The given values of A, B, and C don't form a triangle.
+Input Format
+
+The TRIANGLES table is described as follows:
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ANS 1:
+SELECT case
+WHEN A+B<=C OR A+C<=B OR B+C<=A THEN 'Not A Triangle'
+WHEN A=B AND B=C THEN 'Equilateral'
+WHEN A=B OR A=C OR B=C THEN 'Isosceles'
+ELSE 'Scalene'
+END AS TRIANGLES_Type
+FROM TRIANGLES;
+----------------------------------------------------------------------------------------------------------------------------
+QUERY 3:
+Query the Name of any student in STUDENTS who scored higher than 
+Order your output by the last three characters of each name. If two or more students both have names ending in the same last
+three characters
+-------------------------------------------------------------------------------------------------------------------------------
+ans 3:
+SELECT Name
+FROM  STUDENTS
+WHERE Marks>75
+ORDER BY RIGHT(Name,3),ID ASC;
+-----------------------------------------------------------------------------------------------------------------------------
+QUERY 4:
+We define an employee's total earnings to be their monthly  worked, and the maximum total earnings to be the maximum total earnings for any
+employee in the Employee table. Write a query to find the maximum total earnings for all employees as well as the total number of employees who have maximum total
+earnings. Then print these values as  space-separated integers.
+
+Input Format
+
+The Employee table containing employee data for a company is described as follow
+-----------------------------------------------------------------------------------------------------------------------------\
+ANS 4:
+SELECT(salary*months) AS EARNING COUNT(*)
+FROM Employee
+GROUP BY EARNING
+ORDER BY EARNING DESC LIMIT 1
+---------------------------------------------------------------------------------------------------------------------------
+QUERY 5:
+You are given a table, BST, containing two columns: N and P, where N represents the value of a node in Binary Tree, and P is the parent of N.
+---------------------------------------------------------------------------------------------------------------------------
+SELECT N ,CASE
+WHEN P is null THEN 'Root'
+WHEN N IN (SELECT P FROM BST) THEN 'Inner'
+ELSE 'Leaf'
+END AS NodeType
+FROM BST
+ORDER BY N;
+---------------------------------------------------------------------------------------------------------------------------
+QUERY6:
+(R) represents a pattern drawn by Julia in R rows. The following pattern represents P(20)
+----------------------------------------------------------------------------------------------
+SET @number = 0;
+SELECT REPEAT('* ', @number := @number+1) FROM information_schema.tables LIMIT 20;
+------------------------------------------------------------------------------------------------------------------------
