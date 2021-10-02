@@ -1,0 +1,59 @@
+QUERY 1:
+Query the list of CITY names starting with vowels (i.e., a, e, i, o, or u) from STATION. Your result cannot contain duplicates.
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ANS:
+SELECT  DISTINCT CITY
+FROM STATION
+WHERE LOWER(LEFT(CITY,1)) IN ('a','e','i','o','u');
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+QUERY 2:
+Query the list of CITY names ending with vowels (a, e, i, o, u) from STATION. Your result cannot contain duplicates.
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ANS:
+SELECT DISTINCT CITY
+FROM STATION
+WHERE LOWER(RIGHT(CITY,1)) IN ('a','e','i','o','u');
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+query 3:
+Query the list of CITY names from STATION which have vowels (i.e., a, e, i, o, and u) as both their first and last characters. Your result cannot contain duplicates.
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ans:
+SELECT DISTINCT CITY
+FROM STATION
+WHERE (LOWER(LEFT(CITY,1)) IN ('a','e','i','o','u')) AND (LOWER(RIGHT(CITY,1)) IN ('a','e','i','o','u'));
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+query 4
+Query the list of CITY names from STATION that do not start with vowels. Your result cannot contain duplicates.
+
+Input Format
+
+The STATION table is described as follows:
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ans 4:
+SELECT DISTINCT CITY
+FROM STATION
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+query 5
+Query the list of CITY names from STATION that do not end with vowels. Your result cannot contain duplicates.
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ans 5:
+SELECT  DISTINCT CITY
+FROM STATION
+WHERE RIGHT(CITY,1) NOT IN ('a','e','i','o','u');
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+query 6:
+Query the list of CITY names from STATION that either do not start with vowels or do not end with vowels. Your result cannot contain duplicates.
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ANS 6:
+SELECT DISTINCT CITY
+FROM STATION
+WHERE (LEFT(CITY,1) NOT IN ('A','E','I','O','U')) OR (RIGHT(CITY,1) NOT IN ('a','e','i','o','u'));
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+QUERY 7:
+Query the list of CITY names from STATION that do not start with vowels and do not end with vowels. Your result cannot contain duplicates.
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ans 7:
+SELECT DISTINCT CITY
+FROM STATION
+WHERE (LEFT(CITY,1) NOT IN ('A','E','I','O','U')) AND (RIGHT(CITY,1) NOT IN ('a','e','i','o','u'));
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
