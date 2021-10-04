@@ -1,0 +1,48 @@
+QUERY 1
+Given the CITY and COUNTRY tables, query the names of all cities where the CONTINENT is 'Africa'.
+
+Note: CITY.CountryCode and COUNTRY.Code are matching key columns.
+
+Input Format
+
+The CITY and COUNTRY tables are describe
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ANS 1:
+SELECT CITY.NAME
+FROM CITY
+JOIN COUNTRY ON CITY.COUNTRYCODE=COUNTRY.CODE
+WHERE COUNTRY.CONTINENT='Africa';
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+QUERY 2:
+From the following tables write a SQL query to find the salesperson and customer who belongs to same city. Return Salesman, cust_name and city.
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+SELECT SALESMAN.Name,CUSTOMER.Cust_Name,Customer.city
+FROM CUSTOMER INNER JOIN SALESMAN
+ON CUSTOMER.city=SALESMAN.city
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+QUERY 3:
+Write a SQL query to find the salesperson(s) and the customer(s) he handle.
+Return Customer Name, city, Salesman, commission;
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ANS 3:
+SELECT CUSTOMER.name,CUSTOMER.city,SALESMAN.name,SALESMAN.commission
+FROM CUSTOMER INNER JOIN SALESMAN
+ON CUSTOMER.salesman-id=SALESMAN.salesman_id;
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+QUERY 4:
+From the following tables write a SQL query to find those orders where order
+amount exists between 500 and 2000. Return ord_no, purch_amt, cust_name,
+city
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ANS 4:
+SELECT ORDERS.ord_no,ORDERS.purch_amt,CUSTOMER.cust_name
+FROM ORDER INNER JOIN CUSTOMERS
+WHERE purch_amt BETWEEN(500,2000);
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+QUERY 5:
+from the table write a query to display order no ,purch_amt where purch amt lies between 500 annd 2000.
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ANS 5:
+Select ord_no, purch_amt from orders where purch_amnt>=500 and
+purch_amnt<=2000
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
